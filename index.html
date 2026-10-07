@@ -1,517 +1,1936 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ADPM - Administração Pública para Municípios. Consultoria e auditoria contábil e tributária em Belo Horizonte - MG.">
-  <meta name="theme-color" content="#0b1f33">
-  <title>ADPM | Administração Pública para Municípios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <title>ADPM | Administração Pública para Municípios</title>
 
-  <link rel="stylesheet" href="style.css">
+    <meta name="description"
+          content="ADPM - Administração Pública para Municípios Ltda. Consultoria, auditoria contábil, financeira, fiscal e administrativa para a gestão pública. Belo Horizonte - MG.">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        :root {
+            --primary: #063b67;
+            --primary-dark: #042944;
+            --secondary: #0b6fa4;
+            --gold: #c9a44c;
+            --light: #f5f8fb;
+            --dark: #10202f;
+            --text: #5d6b78;
+            --white: #ffffff;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: #fff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: rgba(4, 41, 68, .97);
+            padding: 18px 0;
+            transition: .3s;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand span {
+            color: var(--gold);
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,.85) !important;
+            font-weight: 500;
+            margin-left: 18px;
+            transition: .3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--gold) !important;
+        }
+
+        .btn-nav {
+            background: var(--gold);
+            color: #fff !important;
+            padding: 10px 20px !important;
+            border-radius: 50px;
+        }
+
+        .btn-nav:hover {
+            background: #b58e36;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 31, 51, .96) 0%,
+                    rgba(3, 31, 51, .86) 48%,
+                    rgba(3, 31, 51, .35) 100%
+                ),
+                url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            color: #fff;
+            max-width: 760px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 50px;
+            background: rgba(255,255,255,.08);
+            color: #fff;
+            font-size: .85rem;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            color: #fff;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            line-height: 1.05;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,.82);
+            max-width: 690px;
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+        }
+
+        .btn-primary-custom {
+            background: var(--gold);
+            border: 2px solid var(--gold);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-primary-custom:hover {
+            background: transparent;
+            color: #fff;
+        }
+
+        .btn-outline-custom {
+            border: 2px solid rgba(255,255,255,.7);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: .3s;
+        }
+
+        .btn-outline-custom:hover {
+            background: #fff;
+            color: var(--primary);
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            margin-top: -65px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 15px 50px rgba(0,0,0,.08);
+            height: 100%;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .stat-card h3 {
+            margin: 12px 0 3px;
+            font-size: 1.8rem;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: .9rem;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: .8rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+        }
+
+        .section-title p {
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-img {
+            border-radius: 24px;
+            overflow: hidden;
+            height: 500px;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding-left: 25px;
+        }
+
+        .about-content h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+        }
+
+        .about-content p {
+            line-height: 1.85;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        .check-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .check-list i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-section {
+            background: var(--light);
+        }
+
+        .service-card {
+            height: 100%;
+            padding: 35px 30px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid #e7edf2;
+            transition: .35s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 0;
+            left: 0;
+            top: 0;
+            background: var(--gold);
+            transition: .35s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,.09);
+        }
+
+        .service-card:hover:before {
+            height: 100%;
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 15px;
+            background: rgba(11,111,164,.1);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+        }
+
+        .service-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 13px;
+        }
+
+        .service-card p {
+            font-size: .93rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* =========================
+           DIFFERENTIALS
+        ========================= */
+
+        .differential {
+            background:
+                linear-gradient(
+                    rgba(3,31,51,.94),
+                    rgba(3,31,51,.94)
+                ),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85")
+                center/cover fixed;
+            color: #fff;
+        }
+
+        .differential h2,
+        .differential h3 {
+            color: #fff;
+        }
+
+        .differential p {
+            color: rgba(255,255,255,.72);
+            line-height: 1.8;
+        }
+
+        .feature {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .feature-icon {
+            min-width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(201,164,76,.15);
+            color: var(--gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+        }
+
+        /* =========================
+           DATA
+        ========================= */
+
+        .data-section {
+            background: #fff;
+        }
+
+        .data-box {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 35px;
+            height: 100%;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #dfe7ed;
+        }
+
+        .data-row:last-child {
+            border-bottom: none;
+        }
+
+        .data-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .data-value {
+            text-align: right;
+        }
+
+        /* =========================
+           PARTNERS
+        ========================= */
+
+        .partner-card {
+            background: #fff;
+            border: 1px solid #e5ebf0;
+            border-radius: 18px;
+            padding: 30px;
+            height: 100%;
+            transition: .3s;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.07);
+        }
+
+        .partner-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            background: var(--gold);
+            padding: 75px 0;
+        }
+
+        .cta h2 {
+            color: #fff;
+            font-size: 2.6rem;
+            font-weight: 800;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,.9);
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--primary);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            background: var(--light);
+        }
+
+        .contact-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            height: 100%;
+            box-shadow: 0 10px 35px rgba(0,0,0,.04);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .contact-icon {
+            min-width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(11,111,164,.1);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-item h6 {
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 430px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.08);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #031f33;
+            color: rgba(255,255,255,.65);
+            padding: 65px 0 25px;
+        }
+
+        footer h5 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand {
+            color: #fff;
+            font-size: 1.7rem;
+            font-weight: 800;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        footer p {
+            line-height: 1.8;
+        }
+
+        footer ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: rgba(255,255,255,.65);
+            transition: .3s;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.1);
+            margin-top: 40px;
+            padding-top: 25px;
+            font-size: .85rem;
+        }
+
+        /* =========================
+           FLOATING WHATSAPP
+        ========================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,.2);
+            z-index: 1000;
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.08);
+            color: #fff;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            .navbar-nav .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+
+            .hero {
+                min-height: 800px;
+            }
+
+            .stats {
+                margin-top: 30px;
+            }
+
+            .about-content {
+                padding-left: 0;
+                margin-top: 35px;
+            }
+
+            .about-img {
+                height: 380px;
+            }
+
+            .data-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .data-value {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 575px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-buttons .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0 0;
+                text-align: center;
+            }
+
+            .stat-card {
+                margin-bottom: 15px;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .whatsapp {
+                right: 18px;
+                bottom: 18px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-adpm">
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio" aria-label="ADPM - início">
-        <span class="brand-mark">A</span>
-        <span>
-          <strong>ADPM</strong>
-          <small>Administração Pública</small>
-        </span>
-      </a>
 
-      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
-        aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <a class="navbar-brand" href="#inicio">
+            ADPM<span>.</span>
+        </a>
 
-      <div class="collapse navbar-collapse" id="menuPrincipal">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#servicos">Atividades</a></li>
-          <li class="nav-item"><a class="nav-link" href="#estrutura">Estrutura</a></li>
-          <li class="nav-item"><a class="nav-link" href="#equipe">Sócios</a></li>
-          <li class="nav-item"><a class="nav-link" href="#localizacao">Localização</a></li>
-          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-accent rounded-pill px-4" href="#contato">Fale conosco</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
 
-  <!-- HERO -->
-  <header id="inicio" class="hero-section">
-    <div class="hero-overlay"></div>
-    <div class="container position-relative">
-      <div class="row align-items-center min-vh-100 py-5">
-        <div class="col-lg-8 col-xl-7">
-          <div class="eyebrow mb-3">
-            <i class="bi bi-shield-check"></i>
-            Consultoria • Auditoria • Gestão Pública
-          </div>
+            <span class="navbar-toggler-icon"></span>
 
-          <h1 class="display-3 fw-bold text-white mb-4">
-            Contabilidade e gestão pública com
-            <span class="text-accent">experiência, precisão e confiança.</span>
-          </h1>
+        </button>
 
-          <p class="lead text-white-50 mb-4 hero-copy">
-            A ADPM atua na prestação de serviços especializados para a administração pública,
-            unindo conhecimento técnico, responsabilidade e visão estratégica para apoiar
-            municípios e gestores em decisões mais seguras.
-          </p>
+        <div class="collapse navbar-collapse" id="menu">
 
-          <div class="d-flex flex-wrap gap-3">
-            <a href="#servicos" class="btn btn-accent btn-lg rounded-pill px-4">
-              Conheça nossas atividades <i class="bi bi-arrow-right ms-2"></i>
-            </a>
-            <a href="#localizacao" class="btn btn-outline-light btn-lg rounded-pill px-4">
-              <i class="bi bi-geo-alt me-2"></i>Como chegar
-            </a>
-          </div>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
-          <div class="hero-trust mt-5">
-            <div><i class="bi bi-patch-check-fill"></i> Empresa ativa</div>
-            <div><i class="bi bi-calendar3"></i> Desde 1998</div>
-            <div><i class="bi bi-geo-alt-fill"></i> Belo Horizonte • MG</div>
-          </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio">Início</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre">Sobre</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#servicos">Serviços</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#empresa">Empresa</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#equipe">Equipe</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link btn-nav" href="#contato">
+                        Fale Conosco
+                    </a>
+                </li>
+
+            </ul>
+
         </div>
 
-        <div class="col-lg-4 col-xl-5 d-none d-lg-block">
-          <div class="hero-card ms-auto">
-            <div class="hero-card-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
-            <span class="small text-uppercase text-white-50 fw-bold letter-spacing">Especialização</span>
-            <h3 class="text-white mt-2">Consultoria contábil e tributária</h3>
-            <p class="text-white-50 mb-0">
-              Apoio técnico para fortalecer planejamento, controle, transparência e conformidade.
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="inicio">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <i class="bi bi-patch-check-fill"></i>
+                Excelência em Gestão Pública
+            </div>
+
+            <h1>
+                Contabilidade e
+                <span>consultoria</span>
+                para uma gestão pública eficiente.
+            </h1>
+
+            <p>
+                A ADPM – Administração Pública para Municípios Ltda.
+                atua com serviços especializados de auditoria, consultoria
+                contábil, financeira, fiscal e administrativa para apoiar
+                gestores públicos na tomada de decisões.
             </p>
-            <div class="hero-card-line"></div>
-            <div class="d-flex justify-content-between small text-white-50">
-              <span>CNAE principal</span>
-              <strong class="text-white">69.20-6-02</strong>
+
+            <div class="hero-buttons">
+
+                <a href="#servicos"
+                   class="btn btn-primary-custom">
+
+                    Conheça nossos serviços
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+                <a href="#contato"
+                   class="btn btn-outline-custom">
+
+                    Entre em contato
+
+                </a>
+
             </div>
-          </div>
+
         </div>
-      </div>
+
     </div>
-  </header>
 
-  <!-- STATS -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="row g-3 g-lg-4">
-        <div class="col-6 col-lg-3">
-          <div class="stat-card">
-            <span class="stat-icon"><i class="bi bi-calendar2-check"></i></span>
-            <strong>1998</strong>
-            <small>ano de fundação</small>
-          </div>
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="container stats">
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+
+            <div class="stat-card">
+
+                <i class="bi bi-calendar-check"></i>
+
+                <h3>1998</h3>
+
+                <p>Desde 15 de julho</p>
+
+            </div>
+
         </div>
-        <div class="col-6 col-lg-3">
-          <div class="stat-card">
-            <span class="stat-icon"><i class="bi bi-building"></i></span>
-            <strong>Ativa</strong>
-            <small>situação cadastral</small>
-          </div>
+
+        <div class="col-md-3">
+
+            <div class="stat-card">
+
+                <i class="bi bi-building"></i>
+
+                <h3>28+</h3>
+
+                <p>Anos de experiência</p>
+
+            </div>
+
         </div>
-        <div class="col-6 col-lg-3">
-          <div class="stat-card">
-            <span class="stat-icon"><i class="bi bi-people"></i></span>
-            <strong>3</strong>
-            <small>sócios-administradores</small>
-          </div>
+
+        <div class="col-md-3">
+
+            <div class="stat-card">
+
+                <i class="bi bi-graph-up-arrow"></i>
+
+                <h3>360°</h3>
+
+                <p>Visão da gestão pública</p>
+
+            </div>
+
         </div>
-        <div class="col-6 col-lg-3">
-          <div class="stat-card">
-            <span class="stat-icon"><i class="bi bi-cash-stack"></i></span>
-            <strong>R$ 300 mil</strong>
-            <small>capital social</small>
-          </div>
+
+        <div class="col-md-3">
+
+            <div class="stat-card">
+
+                <i class="bi bi-shield-check"></i>
+
+                <h3>ATIVA</h3>
+
+                <p>Situação cadastral</p>
+
+            </div>
+
         </div>
-      </div>
+
     </div>
-  </section>
 
-  <!-- SOBRE -->
-  <section id="sobre" class="section-padding bg-light-subtle">
+</div>
+
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section id="sobre">
+
     <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <div class="image-frame">
-            <img
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
-              alt="Equipe reunida em ambiente corporativo"
-              loading="lazy">
-            <div class="image-badge">
-              <i class="bi bi-award-fill"></i>
-              <span><strong>+28 anos</strong><small>de atuação</small></span>
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="about-img">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
+                        alt="Equipe profissional em reunião">
+
+                </div>
+
             </div>
-          </div>
+
+            <div class="col-lg-6">
+
+                <div class="about-content">
+
+                    <span class="section-title"
+                          style="display:block;text-align:left;margin:0 0 15px;">
+
+                        <span class="eyebrow">
+                            Sobre a ADPM
+                        </span>
+
+                    </span>
+
+                    <h2>
+                        Experiência que transforma
+                        gestão em resultados.
+                    </h2>
+
+                    <p>
+                        A ADPM – Administração Pública para Municípios Ltda.
+                        é uma sociedade profissional especializada na
+                        prestação de serviços técnicos para a administração
+                        pública.
+                    </p>
+
+                    <p>
+                        Com uma trajetória construída ao longo de décadas,
+                        a empresa reúne conhecimento técnico em normas
+                        contábeis, auditoria, legislação administrativa
+                        e gestão pública.
+                    </p>
+
+                    <ul class="check-list">
+
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Consultoria e auditoria contábil
+                            </span>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Assessoria financeira e orçamentária
+                            </span>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Consultoria administrativa e fiscal
+                            </span>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Apoio estratégico à gestão pública
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="col-lg-6">
-          <span class="section-kicker">Sobre a ADPM</span>
-          <h2 class="section-title">Conhecimento técnico para decisões públicas mais seguras.</h2>
-          <p class="section-text">
-            A ADPM – Administração Pública para Municípios Ltda. é uma sociedade profissional
-            com atuação especializada na esfera pública. Seu trabalho combina conhecimento
-            em normas contábeis e de auditoria com legislação e princípios constitucionais
-            e administrativos aplicáveis à gestão pública.
-          </p>
-          <p class="section-text">
-            A experiência acumulada ao longo dos anos sustenta uma atuação pautada em
-            responsabilidade, compromisso com a qualidade, personalização, agilidade e eficiência.
-          </p>
-
-          <div class="row g-3 mt-3">
-            <div class="col-sm-6">
-              <div class="mini-feature">
-                <i class="bi bi-check2-circle"></i>
-                <div><strong>Credibilidade</strong><span>Atuação técnica e responsável</span></div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="mini-feature">
-                <i class="bi bi-check2-circle"></i>
-                <div><strong>Especialização</strong><span>Foco em administração pública</span></div>
-              </div>
-            </div>
-          </div>
-
-          <a class="btn btn-dark rounded-pill px-4 mt-4" href="#estrutura">
-            Ver dados institucionais <i class="bi bi-arrow-down ms-2"></i>
-          </a>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos" class="section-padding">
+</section>
+
+
+<!-- =========================
+     SERVIÇOS
+========================= -->
+
+<section class="services-section" id="servicos">
+
     <div class="container">
-      <div class="text-center mx-auto section-heading">
-        <span class="section-kicker">Atividades</span>
-        <h2 class="section-title">Soluções para uma administração pública eficiente</h2>
-        <p class="section-text">
-          A atividade principal registrada da empresa é a consultoria e auditoria contábil e tributária.
-          A estrutura abaixo apresenta as principais frentes de atuação da ADPM de forma clara e profissional.
-        </p>
-      </div>
 
-      <div class="row g-4 mt-3">
-        <div class="col-md-6 col-lg-4">
-          <article class="service-card">
-            <div class="service-icon"><i class="bi bi-calculator"></i></div>
-            <h3>Consultoria Contábil</h3>
-            <p>Orientação técnica para registros, demonstrações, procedimentos e rotinas contábeis aplicadas ao setor público.</p>
-            <span class="service-number">01</span>
-          </article>
-        </div>
+        <div class="section-title">
 
-        <div class="col-md-6 col-lg-4">
-          <article class="service-card">
-            <div class="service-icon"><i class="bi bi-search"></i></div>
-            <h3>Auditoria</h3>
-            <p>Análise técnica de processos e informações para apoiar controles, conformidade e melhoria da gestão.</p>
-            <span class="service-number">02</span>
-          </article>
-        </div>
+            <span class="eyebrow">
+                Nossas especialidades
+            </span>
 
-        <div class="col-md-6 col-lg-4">
-          <article class="service-card">
-            <div class="service-icon"><i class="bi bi-bank"></i></div>
-            <h3>Gestão Orçamentária</h3>
-            <p>Apoio especializado em planejamento e acompanhamento orçamentário, com foco na realidade municipal.</p>
-            <span class="service-number">03</span>
-          </article>
-        </div>
+            <h2>
+                Soluções para uma administração pública eficiente
+            </h2>
 
-        <div class="col-md-6 col-lg-4">
-          <article class="service-card">
-            <div class="service-icon"><i class="bi bi-currency-exchange"></i></div>
-            <h3>Gestão Financeira</h3>
-            <p>Informação técnica para apoiar decisões financeiras, controles e equilíbrio das contas públicas.</p>
-            <span class="service-number">04</span>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <article class="service-card">
-            <div class="service-icon"><i class="bi bi-box-seam"></i></div>
-            <h3>Gestão Patrimonial</h3>
-            <p>Orientações e controles voltados ao patrimônio público e à adequada organização das informações.</p>
-            <span class="service-number">05</span>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <article class="service-card">
-            <div class="service-icon"><i class="bi bi-file-earmark-bar-graph"></i></div>
-            <h3>Consultoria Tributária</h3>
-            <p>Análises e orientações tributárias para apoiar conformidade, planejamento e qualidade das informações.</p>
-            <span class="service-number">06</span>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BANNER -->
-  <section class="quote-section">
-    <div class="container">
-      <div class="quote-box">
-        <div class="quote-icon"><i class="bi bi-quote"></i></div>
-        <div>
-          <span class="section-kicker">Nosso compromisso</span>
-          <h2>“Eficiência, qualidade e conhecimento especializado a serviço da administração pública.”</h2>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ESTRUTURA -->
-  <section id="estrutura" class="section-padding bg-navy text-white">
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-5">
-          <span class="section-kicker text-accent">Informações institucionais</span>
-          <h2 class="section-title text-white">Uma empresa estruturada para atuar com responsabilidade.</h2>
-          <p class="text-white-50">
-            Confira os principais dados cadastrais e institucionais da ADPM.
-          </p>
-
-          <div class="info-highlight mt-4">
-            <i class="bi bi-shield-lock-fill"></i>
-            <div>
-              <strong>CRC/MG: MG006434O</strong>
-              <span>Registro informado para a empresa</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-7">
-          <div class="data-panel">
-            <div class="data-row"><span>CNPJ</span><strong>02.678.177/0001-77</strong></div>
-            <div class="data-row"><span>Razão Social</span><strong>ADPM - Administração Pública para Municípios LTDA</strong></div>
-            <div class="data-row"><span>Nome Fantasia</span><strong>ADPM</strong></div>
-            <div class="data-row"><span>Natureza Jurídica</span><strong>Sociedade Simples Limitada</strong></div>
-            <div class="data-row"><span>Tipo</span><strong>Matriz</strong></div>
-            <div class="data-row"><span>Situação</span><strong class="status-active"><i class="bi bi-circle-fill"></i> Ativa</strong></div>
-            <div class="data-row"><span>Abertura</span><strong>15/07/1998</strong></div>
-            <div class="data-row"><span>Capital Social</span><strong>R$ 300.000,00</strong></div>
-            <div class="data-row"><span>CNAE Principal</span><strong>69.20-6-02</strong></div>
-            <div class="data-row"><span>MEI</span><strong>Não</strong></div>
-            <div class="data-row"><span>Simples Nacional</span><strong>Não</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EQUIPE -->
-  <section id="equipe" class="section-padding bg-light-subtle">
-    <div class="container">
-      <div class="text-center mx-auto section-heading">
-        <span class="section-kicker">Governança</span>
-        <h2 class="section-title">Sócios-administradores</h2>
-        <p class="section-text">
-          A administração da sociedade é composta por profissionais responsáveis pela condução da empresa.
-        </p>
-      </div>
-
-      <div class="row g-4 justify-content-center mt-3">
-        <div class="col-md-4">
-          <div class="person-card">
-            <div class="avatar"><i class="bi bi-person"></i></div>
-            <h3>Ricardo Chaves de Castro</h3>
-            <span>Sócio-Administrador</span>
-            <p>Atuação ligada à consultoria orçamentária e financeira e à administração pública.</p>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="person-card">
-            <div class="avatar"><i class="bi bi-person"></i></div>
-            <h3>Rinaldo Roberto da Silva</h3>
-            <span>Sócio-Administrador</span>
-            <p>Atuação em gestão pública, tecnologia e soluções integradas para administrações públicas.</p>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="person-card">
-            <div class="avatar"><i class="bi bi-person"></i></div>
-            <h3>Rodrigo Silveira Diniz Machado</h3>
-            <span>Sócio-Administrador</span>
-            <p>Participa da administração da sociedade e da condução das atividades institucionais.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOCALIZAÇÃO -->
-  <section id="localizacao" class="section-padding">
-    <div class="container">
-      <div class="row g-5 align-items-stretch">
-        <div class="col-lg-5">
-          <span class="section-kicker">Onde estamos</span>
-          <h2 class="section-title">Nossa localização</h2>
-          <p class="section-text">
-            A ADPM está localizada no bairro São José, na região da Pampulha, em Belo Horizonte/MG.
-          </p>
-
-          <div class="address-card mt-4">
-            <div class="address-item">
-              <i class="bi bi-geo-alt-fill"></i>
-              <div>
-                <small>Endereço</small>
-                <strong>Av. Coronel José Dias Bicalho, 559</strong>
-                <span>2º, 3º, 4º e 5º andares<br>São José (Pampulha)<br>Belo Horizonte - MG<br>CEP 31275-050</span>
-              </div>
-            </div>
-
-            <div class="address-item">
-              <i class="bi bi-telephone-fill"></i>
-              <div>
-                <small>Telefones</small>
-                <a href="tel:+553132121129">(31) 3212-1129</a>
-                <a href="tel:+553121023711">(31) 2102-3711</a>
-              </div>
-            </div>
-
-            <div class="address-item">
-              <i class="bi bi-envelope-fill"></i>
-              <div>
-                <small>E-mail</small>
-                <a href="mailto:dellaqpandersocfv551@gmail.com">dellaqpandersocfv551@gmail.com</a>
-              </div>
-            </div>
-
-            <a class="btn btn-dark rounded-pill w-100 mt-2" target="_blank" rel="noopener"
-               href="https://www.google.com/maps/search/?api=1&query=Avenida+Coronel+Jose+Dias+Bicalho+559+Belo+Horizonte+MG+31275-050">
-              <i class="bi bi-map me-2"></i> Abrir no Google Maps
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-7">
-          <div class="map-wrapper">
-            <iframe
-              title="Mapa da localização da ADPM"
-              src="https://www.google.com/maps?q=Avenida+Coronel+Jose+Dias+Bicalho,+559,+Belo+Horizonte,+MG,+31275-050&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen>
-            </iframe>
-            <div class="map-caption">
-              <i class="bi bi-pin-map-fill"></i>
-              ADPM • São José / Pampulha • Belo Horizonte - MG
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO -->
-  <section id="contato" class="contact-section">
-    <div class="container">
-      <div class="contact-box">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-7">
-            <span class="section-kicker text-accent">Fale com a ADPM</span>
-            <h2 class="text-white">Precisa de apoio especializado em contabilidade e gestão pública?</h2>
-            <p class="text-white-50 mb-0">
-              Entre em contato com nossa equipe para conhecer melhor as atividades e soluções da ADPM.
+            <p>
+                Conhecimento técnico e experiência aplicados às
+                necessidades dos municípios e órgãos públicos.
             </p>
-          </div>
-          <div class="col-lg-5">
-            <div class="d-flex flex-wrap justify-content-lg-end gap-2">
-              <a href="tel:+553121023711" class="btn btn-accent rounded-pill px-4">
-                <i class="bi bi-telephone me-2"></i>Ligar agora
-              </a>
-              <a href="mailto:dellaqpandersocfv551@gmail.com" class="btn btn-outline-light rounded-pill px-4">
-                <i class="bi bi-envelope me-2"></i>Enviar e-mail
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer-adpm">
+        </div>
+
+        <div class="row g-4">
+
+            <!-- 1 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-calculator"></i>
+                    </div>
+
+                    <h4>
+                        Consultoria Contábil
+                    </h4>
+
+                    <p>
+                        Orientação especializada para procedimentos
+                        contábeis, registros, demonstrações e
+                        conformidade da administração pública.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 2 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+
+                    <h4>
+                        Auditoria Contábil
+                    </h4>
+
+                    <p>
+                        Análise técnica de informações e procedimentos
+                        para apoiar a transparência, segurança e
+                        qualidade da gestão.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 3 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-cash-stack"></i>
+                    </div>
+
+                    <h4>
+                        Gestão Financeira
+                    </h4>
+
+                    <p>
+                        Apoio na análise financeira, planejamento,
+                        controle e acompanhamento dos recursos públicos.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 4 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-pie-chart"></i>
+                    </div>
+
+                    <h4>
+                        Planejamento Orçamentário
+                    </h4>
+
+                    <p>
+                        Orientação técnica para planejamento e
+                        acompanhamento orçamentário, contribuindo para
+                        decisões mais seguras.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 5 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-bank"></i>
+                    </div>
+
+                    <h4>
+                        Gestão Fiscal
+                    </h4>
+
+                    <p>
+                        Consultoria especializada para apoiar o
+                        cumprimento das responsabilidades fiscais
+                        da administração pública.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- 6 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+
+                    <h4>
+                        Gestão Administrativa
+                    </h4>
+
+                    <p>
+                        Organização, planejamento e orientação para
+                        aprimorar processos administrativos e
+                        fortalecer a gestão.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DIFERENCIAIS
+========================= -->
+
+<section class="differential">
+
     <div class="container">
-      <div class="row g-4 py-5">
-        <div class="col-lg-5">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <span class="brand-mark">A</span>
-            <div>
-              <strong class="text-white d-block fs-5">ADPM</strong>
-              <small class="text-white-50">Administração Pública para Municípios</small>
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <span class="eyebrow"
+                      style="color:var(--gold);letter-spacing:2px;">
+                    Nosso compromisso
+                </span>
+
+                <h2 class="mt-3 mb-4"
+                    style="font-size:2.8rem;">
+
+                    Credibilidade, responsabilidade
+                    e conhecimento técnico.
+
+                </h2>
+
+                <p>
+                    Uma gestão pública eficiente exige informação,
+                    planejamento, conhecimento técnico e responsabilidade.
+                    É nesse cenário que a ADPM atua.
+                </p>
+
             </div>
-          </div>
-          <p class="text-white-50 mb-0">
-            Consultoria e auditoria contábil e tributária com foco na administração pública.
-          </p>
+
+            <div class="col-lg-6">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-award"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Experiência
+                        </h3>
+
+                        <p>
+                            Atuação construída desde 1998 e conhecimento
+                            acumulado em gestão pública.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-person-check"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Atendimento especializado
+                        </h3>
+
+                        <p>
+                            Equipe técnica preparada para compreender
+                            as particularidades de cada administração.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Agilidade e eficiência
+                        </h3>
+
+                        <p>
+                            Informação qualificada para auxiliar gestores
+                            em decisões estratégicas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="col-6 col-lg-3">
-          <h6 class="text-white">Navegação</h6>
-          <ul class="footer-links">
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Atividades</a></li>
-            <li><a href="#estrutura">Estrutura</a></li>
-            <li><a href="#localizacao">Localização</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-lg-4">
-          <h6 class="text-white">Contato</h6>
-          <ul class="footer-contact">
-            <li><i class="bi bi-telephone"></i><a href="tel:+553121023711">(31) 2102-3711</a></li>
-            <li><i class="bi bi-telephone"></i><a href="tel:+553132121129">(31) 3212-1129</a></li>
-            <li><i class="bi bi-envelope"></i><a href="mailto:dellaqpandersocfv551@gmail.com">dellaqpandersocfv551@gmail.com</a></li>
-            <li><i class="bi bi-geo-alt"></i><span>Belo Horizonte - MG</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© <span id="anoAtual"></span> ADPM - Administração Pública para Municípios LTDA.</span>
-        <span>CNPJ 02.678.177/0001-77</span>
-      </div>
     </div>
-  </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('anoAtual').textContent = new Date().getFullYear();
+</section>
 
-    // Fecha o menu mobile ao clicar em um link.
-    document.querySelectorAll('.navbar .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        const menu = document.getElementById('menuPrincipal');
-        if (menu.classList.contains('show')) {
-          bootstrap.Collapse.getOrCreateInstance(menu).hide();
-        }
-      });
+
+<!-- =========================
+     EMPRESA
+========================= -->
+
+<section class="data-section" id="empresa">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                Informações cadastrais
+            </span>
+
+            <h2>
+                Dados da ADPM
+            </h2>
+
+            <p>
+                Informações de identificação e registro empresarial.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <div class="data-box">
+
+                    <h4 class="mb-4">
+                        <i class="bi bi-building me-2"
+                           style="color:var(--secondary);"></i>
+                        Registro
+                    </h4>
+
+                    <div class="data-row">
+                        <span class="data-label">CNPJ</span>
+                        <span class="data-value">
+                            02.678.177/0001-77
+                        </span>
+                    </div>
+
+                    <div class="data-row">
+                        <span class="data-label">Razão Social</span>
+                        <span class="data-value">
+                            ADPM - Administração Pública para Municípios LTDA
+                        </span>
+                    </div>
+
+                    <div class="data-row">
+                        <span class="data-label">Nome Fantasia</span>
+                        <span class="data-value">ADPM</span>
+                    </div>
+
+                    <div class="data-row">
+                        <span class="data-label">CRC</span>
+                        <span class="data-value">MG006434O</span>
+                    </div>
+
+                    <div class="data-row">
+                        <span class="data-label">Abertura</span>
+                        <span class="data-value">15/07/1998</span>
+                    </div>
+
+                    <div class="data-row">
+                        <span class="data-label">Situação</span>
+                        <span class="data-value">
+                            <span class="badge bg-success">
+                                ATIVA
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="data-row">
+                        <span class="data-label">Capital Social</span>
+                        <span class="data-value">
+                            R$ 300.000,00
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="data-box">
+
+                    <h4 class="mb-4">
+
+                        <i class="bi bi-file-earmark-text me-2"
+                           style="color:var(--secondary);"></i>
+
+                        Atividade
+
+                    </h4>
+
+                    <div class="data-row">
+
+                        <span class="data-label">
+                            CNAE Principal
+                        </span>
+
+                        <span class="data-value">
+                            69.20-6-02
+                        </span>
+
+                    </div>
+
+                    <div class="data-row">
+
+                        <span class="data-label">
+                            Atividade
+                        </span>
+
+                        <span class="data-value">
+                            Atividades de consultoria e auditoria
+                            contábil e tributária
+                        </span>
+
+                    </div>
+
+                    <div class="data-row">
+
+                        <span class="data-label">
+                            Natureza Jurídica
+                        </span>
+
+                        <span class="data-value">
+                            Sociedade Simples Limitada
+                        </span>
+
+                    </div>
+
+                    <div class="data-row">
+
+                        <span class="data-label">
+                            Tipo
+                        </span>
+
+                        <span class="data-value">
+                            Matriz
+                        </span>
+
+                    </div>
+
+                    <div class="data-row">
+
+                        <span class="data-label">
+                            MEI
+                        </span>
+
+                        <span class="data-value">
+                            Não
+                        </span>
+
+                    </div>
+
+                    <div class="data-row">
+
+                        <span class="data-label">
+                            Simples Nacional
+                        </span>
+
+                        <span class="data-value">
+                            Não
+                        </span>
+
+                    </div>
+
+                    <div class="data-row">
+
+                        <span class="data-label">
+                            Responsável
+                        </span>
+
+                        <span class="data-value">
+                            Sócio-Administrador
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EQUIPE
+========================= -->
+
+<section id="equipe"
+         style="background:var(--light);">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                Administração
+            </span>
+
+            <h2>
+                Sócios-Administradores
+            </h2>
+
+            <p>
+                Conheça os responsáveis pela administração da empresa.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="partner-card">
+
+                    <div class="partner-avatar">
+                        RC
+                    </div>
+
+                    <h4>
+                        Ricardo Chaves de Castro
+                    </h4>
+
+                    <p class="mb-0">
+                        Sócio-Administrador
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="partner-card">
+
+                    <div class="partner-avatar">
+                        RR
+                    </div>
+
+                    <h4>
+                        Rinaldo Roberto da Silva
+                    </h4>
+
+                    <p class="mb-0">
+                        Sócio-Administrador
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="partner-card">
+
+                    <div class="partner-avatar">
+                        RD
+                    </div>
+
+                    <h4>
+                        Rodrigo Silveira Diniz Machado
+                    </h4>
+
+                    <p class="mb-0">
+                        Sócio-Administrador
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FRASE / CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <h2>
+                    Gestão pública com conhecimento,
+                    segurança e eficiência.
+                </h2>
+
+                <p class="mb-0 mt-3">
+                    Conte com a experiência da ADPM para apoiar
+                    os desafios da administração pública.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+
+                <a href="#contato"
+                   class="btn-white">
+
+                    Fale com a ADPM
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTATO
+========================= -->
+
+<section class="contact-section" id="contato">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                Entre em contato
+            </span>
+
+            <h2>
+                Estamos em Belo Horizonte
+            </h2>
+
+            <p>
+                Nossa sede está localizada na região da Pampulha,
+                em Belo Horizonte, Minas Gerais.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-5">
+
+                <div class="contact-card">
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+
+                        <div>
+
+                            <h6>
+                                Endereço
+                            </h6>
+
+                            <p>
+                                Avenida Coronel José Dias Bicalho, 559<br>
+                                2º, 3º, 4º e 5º andares<br>
+                                São José (Pampulha)<br>
+                                Belo Horizonte - MG<br>
+                                CEP 31275-050
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+
+                        <div>
+
+                            <h6>
+                                Telefones
+                            </h6>
+
+                            <p>
+
+                                <a href="tel:+553132121129">
+                                    (31) 3212-1129
+                                </a>
+
+                                <br>
+
+                                <a href="tel:+553121023711">
+                                    (31) 2102-3711
+                                </a>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+
+                        <div>
+
+                            <h6>
+                                E-mail
+                            </h6>
+
+                            <p>
+                                <a href="mailto:dellaqpandersocfv551@gmail.com">
+                                    dellaqpandersocfv551@gmail.com
+                                </a>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Avenida+Coronel+Jose+Dias+Bicalho+559+Belo+Horizonte+MG"
+                        target="_blank"
+                        class="btn btn-primary-custom">
+
+                        <i class="bi bi-map me-2"></i>
+                        Abrir no Google Maps
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <div class="map-wrapper">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Avenida%20Coronel%20Jose%20Dias%20Bicalho%20559%20Belo%20Horizonte%20MG&output=embed"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+                    ADPM<span>.</span>
+                </div>
+
+                <p class="mt-3">
+                    Administração Pública para Municípios Ltda.
+                    Consultoria, auditoria e assessoria especializada
+                    para a gestão pública.
+                </p>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h5>
+                    Navegação
+                </h5>
+
+                <ul>
+
+                    <li>
+                        <a href="#inicio">Início</a>
+                    </li>
+
+                    <li>
+                        <a href="#sobre">Sobre</a>
+                    </li>
+
+                    <li>
+                        <a href="#servicos">Serviços</a>
+                    </li>
+
+                    <li>
+                        <a href="#empresa">Empresa</a>
+                    </li>
+
+                    <li>
+                        <a href="#contato">Contato</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <h5>
+                    Informações
+                </h5>
+
+                <ul>
+
+                    <li>
+                        CNPJ: 02.678.177/0001-77
+                    </li>
+
+                    <li>
+                        CRC: MG006434O
+                    </li>
+
+                    <li>
+                        Belo Horizonte - MG
+                    </li>
+
+                    <li>
+                        CEP: 31275-050
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom text-center">
+
+            © 2026 ADPM - Administração Pública para Municípios Ltda.
+            Todos os direitos reservados.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a
+    href="https://wa.me/553121023711"
+    target="_blank"
+    class="whatsapp"
+    aria-label="WhatsApp">
+
+    <i class="bi bi-whatsapp"></i>
+
+</a>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+    // Fecha o menu mobile ao clicar em um link
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+
+        link.addEventListener('click', function() {
+
+            const menu = document.querySelector('#menu');
+
+            if (menu.classList.contains('show')) {
+
+                bootstrap.Collapse
+                    .getOrCreateInstance(menu)
+                    .hide();
+
+            }
+
+        });
+
     });
-  </script>
+
+
+    // Efeito da navbar ao rolar
+    window.addEventListener('scroll', function() {
+
+        const navbar = document.querySelector('.navbar');
+
+        if (window.scrollY > 80) {
+
+            navbar.style.padding = '10px 0';
+
+        } else {
+
+            navbar.style.padding = '18px 0';
+
+        }
+
+    });
+
+</script>
+
 </body>
 </html>
